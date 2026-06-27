@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan Power Market — JEPX Prices & Intelligence · UtilityScope</title>
+<meta name="description" content="Japan electricity market: JEPX day-ahead prices, OCCTO grid status, major utilities TEPCO, Kansai Electric, Chubu Electric and energy transition progress.">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div id="nav-ph"></div>
+<div class="site-wrap">
+
+  <div style="padding-top:24px">
+    <a href="../pages/markets.html" style="font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--ink3);text-decoration:none">← All Markets</a>
+  </div>
+
+  <!-- Market header -->
+  <div style="border-bottom:3px solid var(--ink);padding:20px 0 20px;margin-bottom:28px;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-size:56px;line-height:1">🇯🇵</span>
+      <div>
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:4px">JEPX · METI · OCCTO</div>
+        <h1 style="font-family:var(--serif);font-size:36px;font-weight:700;letter-spacing:-0.5px">Japan</h1>
+        <div style="font-size:13px;color:var(--ink3);margin-top:4px">Liberalised electricity market · ~300 GW installed capacity</div>
+      </div>
+    </div>
+    <div id="mkt-status-badge"></div>
+  </div>
+
+  <!-- Price boxes -->
+  <div class="grid-3" id="price-boxes" style="margin-bottom:28px"></div>
+
+  <!-- Two-col layout -->
+  <div style="display:grid;grid-template-columns:1fr 280px;gap:32px;align-items:start">
+    <div>
+      <div class="section-head" style="margin-bottom:16px"><h2>Market Structure</h2></div>
+
+      <div style="background:#fff;border:1px solid var(--rule);padding:22px;margin-bottom:16px">
+        <h3 style="font-size:14px;font-weight:600;margin-bottom:10px">Liberalisation</h3>
+        <p style="font-size:13px;color:var(--ink2);line-height:1.7">Japan completed full retail liberalisation in April 2016, allowing all consumers to choose their supplier. JEPX operates the wholesale spot market with day-ahead, intraday and forward contracts. The market is overseen by METI with OCCTO managing cross-regional grid coordination.</p>
+      </div>
+
+      <div style="background:#fff;border:1px solid var(--rule);padding:22px;margin-bottom:16px">
+        <h3 style="font-size:14px;font-weight:600;margin-bottom:10px">Grid structure</h3>
+        <p style="font-size:13px;color:var(--ink2);line-height:1.7">Japan's grid is split between 50 Hz (eastern Japan, including Tokyo) and 60 Hz (western Japan, including Osaka). This frequency barrier limits east-west power flows, making interconnection capacity a key market constraint. OCCTO manages the cross-regional interconnection capacity allocation process.</p>
+      </div>
+
+      <div style="background:#fff;border:1px solid var(--rule);padding:22px;margin-bottom:16px">
+        <h3 style="font-size:14px;font-weight:600;margin-bottom:10px">Energy transition</h3>
+        <p style="font-size:13px;color:var(--ink2);line-height:1.7;margin-bottom:14px">Japan's 6th Strategic Energy Plan targets 36–38% renewables by 2030 and 20–22% nuclear. The government reversed its post-Fukushima nuclear exit in 2022, with restarts proceeding at multiple sites. Offshore wind is a key growth area with a 10 GW target by 2030.</p>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink3);margin-bottom:6px">Renewable penetration · 2025 estimate → 2030 target</div>
+        <div style="height:6px;background:var(--paper3)"><div style="height:100%;width:24%;background:var(--teal)"></div></div>
+        <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--ink3);margin-top:4px"><span>~24% current</span><span>36–38% target</span></div>
+      </div>
+
+      <!-- Key utilities -->
+      <div class="section-head" style="margin-bottom:0"><h2>Key Utilities</h2></div>
+      <div style="background:#fff;border:1px solid var(--rule);border-top:none">
+        <div style="padding:14px 18px;border-bottom:1px solid var(--rule2);display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div style="font-weight:600;font-size:13px">TEPCO — Tokyo Electric Power Company</div>
+            <div style="font-size:11px;color:var(--ink3);margin-top:2px">Kanto region · 37.7 GW · Listed TSE · 50% RE by 2030</div>
+          </div>
+          <a href="../utilities/tepco.html" style="font-family:var(--mono);font-size:10px;color:var(--teal)">Profile →</a>
+        </div>
+        <div style="padding:14px 18px;border-bottom:1px solid var(--rule2);display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div style="font-weight:600;font-size:13px">Kansai Electric Power (KEPCO)</div>
+            <div style="font-size:11px;color:var(--ink3);margin-top:2px">Kansai region · 28.9 GW · Listed TSE · Nuclear-heavy · 44% RE by 2030</div>
+          </div>
+          <a href="../pages/utilities.html" style="font-family:var(--mono);font-size:10px;color:var(--teal)">Directory →</a>
+        </div>
+        <div style="padding:14px 18px;display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div style="font-weight:600;font-size:13px">Chubu Electric Power</div>
+            <div style="font-size:11px;color:var(--ink3);margin-top:2px">Chubu region · 26.1 GW · Listed TSE · JV with TEPCO (JERA)</div>
+          </div>
+          <a href="../pages/utilities.html" style="font-family:var(--mono);font-size:10px;color:var(--teal)">Directory →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div>
+      <div style="background:#fff;border:1px solid var(--rule);padding:18px;margin-bottom:16px">
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:14px">Market Facts</div>
+        <div style="font-size:13px;line-height:2.1;color:var(--ink2)">
+          <div><strong style="color:var(--ink)">Operator:</strong> JEPX</div>
+          <div><strong style="color:var(--ink)">Grid:</strong> OCCTO / 10 TSOs</div>
+          <div><strong style="color:var(--ink)">Regulator:</strong> METI</div>
+          <div><strong style="color:var(--ink)">Liberalised:</strong> 2016 (retail)</div>
+          <div><strong style="color:var(--ink)">Capacity:</strong> ~300 GW</div>
+          <div><strong style="color:var(--ink)">Nuclear (op.):</strong> ~12 GW</div>
+          <div><strong style="color:var(--ink)">Frequency:</strong> 50 Hz (E) / 60 Hz (W)</div>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--rule);padding:18px;margin-bottom:16px">
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:12px">Key Sources</div>
+        <div style="font-size:13px;line-height:2.2">
+          <a href="https://www.jepx.jp" target="_blank" style="color:var(--teal);display:block">JEPX official portal ↗</a>
+          <a href="https://www.occto.or.jp" target="_blank" style="color:var(--teal);display:block">OCCTO grid data ↗</a>
+          <a href="https://www.meti.go.jp" target="_blank" style="color:var(--teal);display:block">METI energy policy ↗</a>
+        </div>
+      </div>
+      <div style="background:var(--ink);padding:18px">
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:10px">Weekly Brief</div>
+        <p style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.55;margin-bottom:14px">Japan market updates every Friday in the UtilityScope weekly brief.</p>
+        <a href="../pages/newsletter.html" class="btn-subscribe" style="text-decoration:none;display:inline-block;font-size:12px;padding:8px 16px">Subscribe free →</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div id="footer-ph"></div>
+<script src="../js/shared.js"></script>
+<script>
+window.pageInit = function(data) {
+  const m = data.markets.find(x => x.id === 'japan');
+  if (!m) return;
+
+  document.getElementById('mkt-status-badge').innerHTML =
+    '<span class="status-chip ' + US.chipClass(m.gridStatus) + '"><span class="chip-dot"></span>' + US.chipLabel(m.gridStatus) + ' grid</span>';
+
+  document.getElementById('price-boxes').innerHTML = `
+    <div style="background:#fff;border:1px solid var(--rule);padding:20px">
+      <div style="font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:8px">Day-ahead (JEPX)</div>
+      <div style="font-family:var(--mono);font-size:26px;font-weight:500;color:var(--teal)">${m.price}<span style="font-size:13px;color:var(--ink3)"> ${m.unit}</span></div>
+      <div class="chg ${m.changeDir==='up'?'up':'dn'}" style="font-family:var(--mono);font-size:12px;margin-top:6px">${m.changeDir==='up'?'▲':'▼'} ${Math.abs(parseFloat(m.change))}% from yesterday</div>
+    </div>
+    <div style="background:#fff;border:1px solid var(--rule);padding:20px">
+      <div style="font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:8px">Week range</div>
+      <div style="font-family:var(--mono);font-size:18px;font-weight:500">${m.weekHigh} <span style="color:var(--ink3);font-size:13px">high</span></div>
+      <div style="font-family:var(--mono);font-size:18px;font-weight:500">${m.weekLow} <span style="color:var(--ink3);font-size:13px">low</span></div>
+    </div>
+    <div style="background:#fff;border:1px solid var(--rule);padding:20px">
+      <div style="font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:8px">Grid demand</div>
+      <div style="font-family:var(--mono);font-size:26px;font-weight:500">${m.demand}%</div>
+      <div style="height:5px;background:var(--paper3);margin-top:10px"><div style="height:100%;width:${m.demand}%;background:${US.demColor(m.demand)}"></div></div>
+    </div>
+  `;
+};
+</script>
+</body>
+</html>

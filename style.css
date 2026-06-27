@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UtilityScope APAC — Daily Intelligence for Asia-Pacific Power Markets</title>
+<meta name="description" content="The essential daily briefing for power market professionals. Prices, grid status and market events across Japan, Australia, Singapore, South Korea and Taiwan.">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ── HOMEPAGE SPECIFIC ─────────────────────────────────── */
+
+/* Masthead */
+.masthead {
+  text-align: center;
+  padding: 28px 0 20px;
+  border-bottom: 3px solid var(--ink);
+}
+.masthead-title {
+  font-family: var(--serif);
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.05;
+  color: var(--ink);
+}
+.masthead-sub {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--ink3); margin-top: 8px;
+}
+.masthead-rule {
+  display: flex; align-items: center; gap: 16px;
+  margin-top: 14px;
+  font-family: var(--mono); font-size: 10px; color: var(--ink3);
+}
+.masthead-rule::before, .masthead-rule::after {
+  content: ''; flex: 1; height: 1px; background: var(--rule);
+}
+
+/* Main layout: wide left, narrow right */
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 0;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 28px;
+}
+.home-main  { padding-right: 24px; border-right: 1px solid var(--rule); }
+.home-aside { padding-left: 24px; }
+
+/* Stat strip */
+.stat-strip {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 24px;
+}
+.stat-box {
+  padding: 16px 0; border-right: 1px solid var(--rule);
+  text-align: center;
+}
+.stat-box:last-child { border-right: none; }
+.stat-label { font-family: var(--mono); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink3); margin-bottom: 6px; }
+.stat-num   { font-family: var(--serif); font-size: 28px; font-weight: 700; line-height: 1; color: var(--ink); }
+.stat-sub   { font-size: 11px; color: var(--ink3); margin-top: 3px; }
+
+/* Top story */
+.top-story {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 20px; margin-bottom: 20px;
+}
+.top-story-kicker {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--teal); margin-bottom: 6px;
+}
+.top-story-hl {
+  font-family: var(--serif); font-size: 22px; font-weight: 700;
+  line-height: 1.25; color: var(--ink); margin-bottom: 8px;
+}
+.top-story-body { font-size: 13px; color: var(--ink2); line-height: 1.65; }
+
+/* Aside sections */
+.aside-section { padding-top: 20px; margin-top: 20px; border-top: 1px solid var(--rule); }
+.aside-section:first-child { border-top: none; margin-top: 0; padding-top: 0; }
+.aside-label {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--ink3); margin-bottom: 12px;
+}
+
+/* Bottom row */
+.bottom-row {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 0; border: 1px solid var(--rule);
+  margin-bottom: 32px;
+}
+.bottom-col {
+  padding: 20px;
+  border-right: 1px solid var(--rule);
+}
+.bottom-col:last-child { border-right: none; }
+
+/* Newsletter band */
+.nl-band {
+  background: var(--ink);
+  padding: 32px;
+  display: grid; grid-template-columns: 1fr 340px;
+  gap: 32px; align-items: center;
+  margin-bottom: 0;
+}
+.nl-band h2 {
+  font-family: var(--serif); font-size: 22px; font-weight: 700;
+  color: #fff; margin-bottom: 6px;
+}
+.nl-band p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.55; }
+.nl-form-dark { display: flex; gap: 0; margin-top: 14px; }
+.nl-input-dark {
+  flex: 1; padding: 10px 14px;
+  font-family: var(--sans); font-size: 13px;
+  border: 1px solid rgba(255,255,255,0.2); border-right: none;
+  background: rgba(255,255,255,0.08); color: #fff; outline: none;
+}
+.nl-input-dark::placeholder { color: rgba(255,255,255,0.35); }
+.nl-input-dark:focus { border-color: var(--teal); }
+.nl-btn-dark {
+  padding: 10px 20px;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  background: var(--teal); color: #fff;
+  border: 1px solid var(--teal); cursor: pointer;
+  transition: background 0.15s;
+}
+.nl-btn-dark:hover { background: var(--teal2); }
+.nl-note { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 8px; }
+
+@media (max-width:900px) {
+  .home-grid { grid-template-columns: 1fr; }
+  .home-main { padding-right: 0; border-right: none; }
+  .home-aside { padding-left: 0; border-top: 1px solid var(--rule); padding-top: 24px; margin-top: 24px; }
+  .stat-strip { grid-template-columns: repeat(2,1fr); }
+  .bottom-row { grid-template-columns: 1fr; }
+  .bottom-col { border-right: none; border-bottom: 1px solid var(--rule); }
+  .bottom-col:last-child { border-bottom: none; }
+  .nl-band { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="nav-ph"></div>
+
+<div class="site-wrap">
+
+  <!-- MASTHEAD -->
+  <div class="masthead">
+    <div class="masthead-title">UtilityScope APAC</div>
+    <div class="masthead-sub">Asia-Pacific Power Market Intelligence</div>
+    <div class="masthead-rule" id="masthead-date">Friday 27 June 2026 · 09:05 SGT · 5 Markets</div>
+  </div>
+
+  <!-- STAT STRIP -->
+  <div class="stat-strip mt-16">
+    <div class="stat-box">
+      <div class="stat-label">Markets Active</div>
+      <div class="stat-num text-teal">5</div>
+      <div class="stat-sub">Phase 1 · APAC</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">Events Today</div>
+      <div class="stat-num" id="stat-events">—</div>
+      <div class="stat-sub" id="stat-events-sub">—</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">Utilities Tracked</div>
+      <div class="stat-num">9</div>
+      <div class="stat-sub">Across 5 markets</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">Subscribers</div>
+      <div class="stat-num text-teal">2,841</div>
+      <div class="stat-sub">+142 this week</div>
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="home-grid mt-24">
+
+    <!-- LEFT: prices + events -->
+    <div class="home-main">
+
+      <!-- Price table -->
+      <div class="section-head mb-16" style="margin-bottom:0">
+        <h2>Benchmark Prices</h2>
+        <span class="see-all" id="price-updated">—</span>
+      </div>
+      <table class="price-table" id="price-table">
+        <thead>
+          <tr>
+            <th>Market</th>
+            <th>Price</th>
+            <th>Change</th>
+            <th>Wk High / Low</th>
+            <th>Demand</th>
+            <th>Grid</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="price-tbody">
+          <tr><td colspan="7" style="padding:20px;color:var(--ink3);font-size:13px">Loading prices…</td></tr>
+        </tbody>
+      </table>
+
+      <div style="border-top:1px solid var(--rule2);margin:24px 0"></div>
+
+      <!-- Top story -->
+      <div class="top-story">
+        <div class="top-story-kicker">Lead story · 27 Jun 2026</div>
+        <div class="top-story-hl">Taiwan grid stress deepens as reserve margins fall to 6% — conservation notice issued</div>
+        <div class="top-story-body">Taiwan Power Company issued a demand conservation notice this morning after reserve margins dropped below the 6% safety threshold. Industrial users have been asked to curtail load during the peak window of 14:00–18:00 CST. Solar generation has been underperforming due to overcast conditions across northern Taiwan. The situation marks the third conservation event this month and comes amid delayed commissioning of a 600 MW offshore wind project.</div>
+      </div>
+
+      <!-- Events -->
+      <div class="section-head" style="margin-bottom:0">
+        <h2>Market Events</h2>
+        <a href="pages/events.html" class="see-all">All events →</a>
+      </div>
+      <div id="event-list"></div>
+
+    </div>
+
+    <!-- RIGHT ASIDE -->
+    <div class="home-aside">
+
+      <!-- Reserve margins -->
+      <div class="aside-label">Grid Status · Reserve Margins</div>
+      <div id="reserve-list"></div>
+
+      <!-- Market highlights -->
+      <div class="aside-section">
+        <div class="aside-label">Market Highlights</div>
+        <div id="highlights-list"></div>
+      </div>
+
+      <!-- Data note -->
+      <div class="aside-section">
+        <div class="aside-label">Data Note</div>
+        <p style="font-size:12px;color:var(--ink3);line-height:1.6">Prices updated manually each weekday by 09:00 SGT from official exchange sources: JEPX, AEMO, EMA, KPX and TPC. Grid status reflects morning data from TSO reports. <a href="pages/about.html" style="color:var(--teal)">Full methodology →</a></p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- BOTTOM ROW: Markets · Utilities · Subscribe -->
+  <div class="section-head mb-16" style="margin-bottom:0">
+    <h2>Markets &amp; Coverage</h2>
+    <a href="pages/markets.html" class="see-all">All markets →</a>
+  </div>
+  <div class="bottom-row mt-16">
+    <div class="bottom-col" id="market-cards-col">
+      <!-- JS renders market mini-cards -->
+    </div>
+    <div class="bottom-col">
+      <div class="aside-label">Utility Directory</div>
+      <div id="util-mini"></div>
+      <a href="pages/utilities.html" style="font-family:var(--mono);font-size:10px;color:var(--teal);margin-top:12px;display:block">View all 9 utilities →</a>
+    </div>
+    <div class="bottom-col">
+      <div class="aside-label">Phase 2 — Coming Q4 2026</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
+        <span style="font-size:20px">🇵🇭</span>
+        <span style="font-size:20px">🇹🇭</span>
+        <span style="font-size:20px">🇲🇾</span>
+      </div>
+      <p style="font-size:12px;color:var(--ink3);line-height:1.6;margin-bottom:16px">Philippines (IEMOP), Thailand (ERC/EGAT) and Malaysia (ST/TNB) added in Phase 2. Subscribe to be notified when coverage goes live.</p>
+      <div class="aside-label" style="margin-top:16px">Weekly Brief</div>
+      <p style="font-size:12px;color:var(--ink3);line-height:1.6;margin-bottom:12px">Every Friday: what moved, why it matters, what to watch. Free.</p>
+      <a href="pages/newsletter.html" class="btn-subscribe" style="display:inline-block;text-decoration:none">Subscribe free →</a>
+    </div>
+  </div>
+
+</div><!-- /.site-wrap -->
+
+<!-- NEWSLETTER BAND -->
+<div class="nl-band">
+  <div>
+    <h2>The APAC power brief — free, every Friday</h2>
+    <p>What moved across Japan, Australia, Singapore, South Korea and Taiwan. Written by a market specialist. Read in 3 minutes.</p>
+  </div>
+  <div>
+    <div style="font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:10px">Join 2,841 subscribers</div>
+    <div id="nl-form-wrap">
+      <form class="nl-form-dark" onsubmit="handleNL(event)">
+        <input class="nl-input-dark" type="email" placeholder="you@company.com" required>
+        <button type="submit" class="nl-btn-dark">Subscribe</button>
+      </form>
+      <div class="nl-note">No spam. Unsubscribe anytime.</div>
+    </div>
+  </div>
+</div>
+
+<div style="max-width:1280px;margin:0 auto;padding:0 24px">
+<div id="footer-ph"></div>
+</div>
+
+<script src="js/shared.js"></script>
+<script>
+window.pageInit = function(data) {
+  /* stat strip */
+  const high = data.events.filter(e => e.sev === 'high').length;
+  document.getElementById('stat-events').textContent = data.events.length;
+  document.getElementById('stat-events-sub').textContent = high + ' high severity';
+
+  /* price updated */
+  document.getElementById('price-updated').textContent = 'Updated ' + data.meta.updatedTime + ' · ' + data.meta.lastUpdated;
+
+  /* price table */
+  const tbody = document.getElementById('price-tbody');
+  tbody.innerHTML = data.markets.map(m => `
+    <tr>
+      <td>
+        <div class="market-cell">
+          <span class="mflag">${m.flag}</span>
+          <div>
+            <div class="mname">${m.name}</div>
+            <div class="mexch">${m.exchange}</div>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="price-num">${m.price}</div>
+        <div class="price-unit">${m.unit}</div>
+      </td>
+      <td class="chg ${m.changeDir === 'up' ? 'up' : 'dn'}">
+        ${m.changeDir === 'up' ? '▲' : '▼'} ${Math.abs(parseFloat(m.change))}%
+      </td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--ink3)">
+        ${m.weekHigh} / ${m.weekLow}
+      </td>
+      <td>
+        <div class="dem-wrap">
+          <div class="dem-bar-bg"><div class="dem-bar-fg" style="width:${m.demand}%;background:${US.demColor(m.demand)}"></div></div>
+          <div class="dem-pct">${m.demand}%</div>
+        </div>
+      </td>
+      <td>
+        <span class="status-chip ${US.chipClass(m.gridStatus)}">
+          <span class="chip-dot"></span>${US.chipLabel(m.gridStatus)}
+        </span>
+      </td>
+      <td><a href="markets/${m.slug}.html" class="view-link">View →</a></td>
+    </tr>
+  `).join('');
+
+  /* events */
+  const el = document.getElementById('event-list');
+  el.innerHTML = data.events.slice(0,5).map(e => `
+    <div class="event-row">
+      <span class="event-sev sev-${e.sev}">${e.sev}</span>
+      <div>
+        <div class="event-title">${e.title}</div>
+        <div class="event-body">${e.body}</div>
+        <div class="event-meta">${e.marketFlag} ${e.market}</div>
+      </div>
+      <div class="event-time">${e.time}</div>
+    </div>
+  `).join('');
+
+  /* reserve margins */
+  const rl = document.getElementById('reserve-list');
+  rl.innerHTML = data.markets.map(m => `
+    <div class="reserve-row">
+      <span class="res-flag">${m.flag}</span>
+      <span class="res-name">${m.name}</span>
+      <div class="res-bar-bg"><div class="res-bar-fg" style="width:${m.demand}%;background:${US.demColor(m.demand)}"></div></div>
+      <span class="res-pct" style="color:${US.demColor(m.demand)}">${m.demand}%</span>
+    </div>
+  `).join('');
+
+  /* highlights */
+  const hl = document.getElementById('highlights-list');
+  hl.innerHTML = data.markets.map(m => `
+    <div style="padding:9px 0;border-bottom:1px solid var(--rule2)">
+      <div style="font-size:11px;font-weight:600;margin-bottom:3px">${m.flag} ${m.name}</div>
+      <div style="font-size:11px;color:var(--ink3);line-height:1.5">${m.highlight}</div>
+    </div>
+  `).join('');
+
+  /* market mini-cards */
+  const mc = document.getElementById('market-cards-col');
+  mc.innerHTML = '<div class="aside-label">5 Active Markets</div>' +
+    data.markets.map(m => `
+    <a href="markets/${m.slug}.html" class="market-card" style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;margin-bottom:6px;border:1px solid var(--rule);text-decoration:none;transition:border-color .15s">
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="font-size:18px">${m.flag}</span>
+        <div>
+          <div style="font-size:12px;font-weight:600">${m.name}</div>
+          <div style="font-family:var(--mono);font-size:9px;color:var(--ink3)">${m.exchange}</div>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-family:var(--mono);font-size:12px;font-weight:500">${m.price} <span style="font-size:9px;color:var(--ink3)">${m.unit}</span></div>
+        <div class="chg ${m.changeDir === 'up' ? 'up' : 'dn'}" style="font-family:var(--mono);font-size:10px">${m.changeDir === 'up' ? '▲' : '▼'} ${Math.abs(parseFloat(m.change))}%</div>
+      </div>
+    </a>
+  `).join('');
+
+  /* util mini */
+  const um = document.getElementById('util-mini');
+  um.innerHTML = data.utilities.slice(0,6).map(u => `
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--rule2)">
+      <div style="display:flex;align-items:center;gap:7px">
+        <span>${u.flag}</span>
+        <div>
+          <div style="font-size:12px;font-weight:500">${u.name}</div>
+          <div style="font-family:var(--mono);font-size:9px;color:var(--ink3)">${u.country}</div>
+        </div>
+      </div>
+      <span style="font-family:var(--mono);font-size:9px;color:var(--ink3)">${u.capacity}</span>
+    </div>
+  `).join('');
+};
+
+function handleNL(e) {
+  e.preventDefault();
+  document.getElementById('nl-form-wrap').innerHTML =
+    '<p style="color:var(--teal);font-family:var(--mono);font-size:12px;letter-spacing:1px">✓ SUBSCRIBED · First brief lands Friday 07:00 SGT</p>';
+}
+
+/* update masthead date dynamically */
+const now = new Date();
+const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+document.getElementById('masthead-date').textContent =
+  days[now.getDay()] + ' ' + now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear() + ' · ' +
+  String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0') + ' SGT · 5 Markets';
+</script>
+</body>
+</html>

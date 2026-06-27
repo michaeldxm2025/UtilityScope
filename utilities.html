@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "lastUpdated": "27 Jun 2026",
+    "updatedTime": "09:05 SGT",
+    "nextUpdate": "Mon 30 Jun 09:00 SGT"
+  },
+  "markets": [
+    {
+      "id": "japan", "name": "Japan", "flag": "🇯🇵",
+      "exchange": "JEPX", "regulator": "METI / OCCTO",
+      "price": "18.4", "unit": "¥/kWh", "priceLabel": "Day-ahead",
+      "change": "+2.3", "changeDir": "up",
+      "demand": 71, "demandStatus": "Normal", "gridStatus": "normal",
+      "marketType": "Liberalised", "capacity": "~300 GW",
+      "slug": "japan",
+      "weekHigh": "24.1", "weekLow": "14.2",
+      "highlight": "TEPCO increasing coal dispatch amid wind shortfall in Kanto region."
+    },
+    {
+      "id": "australia", "name": "Australia", "flag": "🇦🇺",
+      "exchange": "AEMO", "regulator": "AER / AEMO",
+      "price": "87", "unit": "A$/MWh", "priceLabel": "NEM spot",
+      "change": "+0.8", "changeDir": "up",
+      "demand": 68, "demandStatus": "Normal", "gridStatus": "normal",
+      "marketType": "Competitive NEM", "capacity": "~68 GW",
+      "slug": "australia",
+      "weekHigh": "102", "weekLow": "71",
+      "highlight": "AEMO LOR1 notice issued for Victoria following Loy Yang A outage."
+    },
+    {
+      "id": "singapore", "name": "Singapore", "flag": "🇸🇬",
+      "exchange": "EMA", "regulator": "EMA / SP Group",
+      "price": "201", "unit": "S$/MWh", "priceLabel": "Wholesale",
+      "change": "-1.1", "changeDir": "down",
+      "demand": 84, "demandStatus": "Elevated", "gridStatus": "elevated",
+      "marketType": "Regulated + wholesale", "capacity": "~13 GW",
+      "slug": "singapore",
+      "weekHigh": "218", "weekLow": "189",
+      "highlight": "EMA approves revised grid code for battery storage assets, effective 1 Jul."
+    },
+    {
+      "id": "korea", "name": "South Korea", "flag": "🇰🇷",
+      "exchange": "KPX", "regulator": "MOTIE / KPX",
+      "price": "142", "unit": "₩/kWh", "priceLabel": "SMP",
+      "change": "+3.6", "changeDir": "up",
+      "demand": 72, "demandStatus": "Normal", "gridStatus": "normal",
+      "marketType": "Cost-based pool", "capacity": "~121 GW",
+      "slug": "korea",
+      "weekHigh": "158", "weekLow": "131",
+      "highlight": "KEPCO Q1 2026 net loss narrows 18% YoY on fuel cost normalisation."
+    },
+    {
+      "id": "taiwan", "name": "Taiwan", "flag": "🇹🇼",
+      "exchange": "TPC", "regulator": "MOEA / Bureau of Energy",
+      "price": "3.1", "unit": "NT$/kWh", "priceLabel": "Average tariff",
+      "change": "-0.4", "changeDir": "down",
+      "demand": 94, "demandStatus": "Grid Alert", "gridStatus": "alert",
+      "marketType": "Vertically integrated", "capacity": "~45 GW",
+      "slug": "taiwan",
+      "weekHigh": "3.3", "weekLow": "2.9",
+      "highlight": "TPC conservation notice: reserve margin below 6% threshold. Peak 14:00–18:00 CST."
+    }
+  ],
+  "events": [
+    { "id": 1, "sev": "high",   "market": "Taiwan",    "marketFlag": "🇹🇼", "title": "TPC issues demand conservation notice", "body": "Reserve margin dropped below the 6% safety threshold. Industrial users requested to reduce load during 14:00–18:00 CST peak window. Situation under active monitoring.", "time": "08:31", "date": "27 Jun 2026" },
+    { "id": 2, "sev": "high",   "market": "Japan",     "marketFlag": "🇯🇵", "title": "TEPCO increases coal dispatch amid wind shortfall", "body": "Wind generation tracking 40% below forecast across Kanto. Coal and LNG thermal fill required through the weekend. JEPX intraday prices spiked to ¥26/kWh.", "time": "07:58", "date": "27 Jun 2026" },
+    { "id": 3, "sev": "medium", "market": "Australia", "marketFlag": "🇦🇺", "title": "AEMO issues LOR1 notice for Victoria", "body": "Unplanned outage at Loy Yang A reduces available capacity by 650 MW. AEMO monitoring reserve margins; no load shedding expected at this stage.", "time": "07:14", "date": "27 Jun 2026" },
+    { "id": 4, "sev": "low",    "market": "Korea",     "marketFlag": "🇰🇷", "title": "KEPCO Q1 2026 earnings: loss narrows 18% YoY", "body": "Revenue ₩7.2T. Net loss improvement driven by fuel cost normalisation and nuclear capacity recovery. Nuclear output up 2.1 GW versus Q1 2025.", "time": "06:30", "date": "27 Jun 2026" },
+    { "id": 5, "sev": "low",    "market": "Singapore", "marketFlag": "🇸🇬", "title": "EMA approves revised grid code for battery storage", "body": "New dispatch rules for battery storage assets take effect 1 July 2026. Amendment aims to improve grid flexibility and enable faster frequency response.", "time": "05:47", "date": "27 Jun 2026" },
+    { "id": 6, "sev": "medium", "market": "Japan",     "marketFlag": "🇯🇵", "title": "JEPX Hokkaido prices spike to ¥24/kWh", "body": "Cold snap driving heating demand in northern Japan. Transmission constraints limiting supply from Honshu; OCCTO monitoring cross-regional flows.", "time": "04:10", "date": "27 Jun 2026" }
+  ],
+  "utilities": [
+    { "id": "tepco",    "name": "TEPCO",           "fullName": "Tokyo Electric Power Co.", "country": "Japan",       "flag": "🇯🇵", "type": "Integrated",  "capacity": "37.7 GW", "listed": true,  "re2030": "50%", "slug": "tepco" },
+    { "id": "kepco-jp", "name": "Kansai Electric", "fullName": "Kansai Electric Power Co.", "country": "Japan",      "flag": "🇯🇵", "type": "Integrated",  "capacity": "28.9 GW", "listed": true,  "re2030": "44%", "slug": null },
+    { "id": "chubu",    "name": "Chubu Electric",  "fullName": "Chubu Electric Power Co.", "country": "Japan",       "flag": "🇯🇵", "type": "Integrated",  "capacity": "26.1 GW", "listed": true,  "re2030": "40%", "slug": null },
+    { "id": "kepco-kr", "name": "KEPCO",           "fullName": "Korea Electric Power Corp.", "country": "Korea",     "flag": "🇰🇷", "type": "State-owned", "capacity": "121 GW",  "listed": true,  "re2030": "30%", "slug": null },
+    { "id": "agl",      "name": "AGL Energy",      "fullName": "AGL Energy Limited",       "country": "Australia",   "flag": "🇦🇺", "type": "Private",     "capacity": "11.2 GW", "listed": true,  "re2030": "60%", "slug": null },
+    { "id": "origin",   "name": "Origin Energy",   "fullName": "Origin Energy Limited",    "country": "Australia",   "flag": "🇦🇺", "type": "Private",     "capacity": "6.8 GW",  "listed": true,  "re2030": "65%", "slug": null },
+    { "id": "spgroup",  "name": "SP Group",        "fullName": "Singapore Power Group",    "country": "Singapore",   "flag": "🇸🇬", "type": "State-owned", "capacity": "13.4 GW", "listed": false, "re2030": "—",  "slug": null },
+    { "id": "tpc",      "name": "Taiwan Power",    "fullName": "Taiwan Power Company",     "country": "Taiwan",      "flag": "🇹🇼", "type": "State-owned", "capacity": "45.1 GW", "listed": false, "re2030": "20%", "slug": null },
+    { "id": "khnp",     "name": "KHNP",            "fullName": "Korea Hydro & Nuclear Power", "country": "Korea",   "flag": "🇰🇷", "type": "State-owned", "capacity": "25.7 GW", "listed": false, "re2030": "—",  "slug": null }
+  ]
+}

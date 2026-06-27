@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Australia Power Market — UtilityScope</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div id="nav-ph"></div>
+<div class="site-wrap">
+  <div style="padding-top:24px">
+    <a href="../pages/markets.html" style="font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--ink3);text-decoration:none">← All Markets</a>
+  </div>
+  <div style="border-bottom:3px solid var(--ink);padding:20px 0 20px;margin-bottom:28px;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-size:56px;line-height:1">🇦🇺</span>
+      <div>
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:4px">AEMO · AER / AEMO</div>
+        <h1 style="font-family:var(--serif);font-size:36px;font-weight:700;letter-spacing:-0.5px">Australia</h1>
+        <div style="font-size:13px;color:var(--ink3);margin-top:4px">Competitive NEM · ~68 GW installed capacity</div>
+      </div>
+    </div>
+    <div id="mkt-status-badge"></div>
+  </div>
+  <div class="grid-3" id="price-boxes" style="margin-bottom:32px"></div>
+  <div class="prose" style="margin-bottom:32px">
+    <p>Australia operates the National Electricity Market (NEM) — one of the longest interconnected power systems in the world, spanning Queensland, New South Wales, Victoria, South Australia and Tasmania. AEMO manages 5-minute settlement dispatch. The transition to renewables is among the fastest globally.</p>
+  </div>
+  <div style="background:#fff;border:1px solid var(--rule);padding:18px;margin-bottom:16px">
+    <div style="font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:12px">Key Data Sources</div>
+    <div style="font-size:13px;color:var(--ink2);line-height:2.2">
+      <div>AEMO data portal (aemo.com.au)</div><div>AER reports (aer.gov.au)</div><div>ASX utility investor reports</div>
+    </div>
+  </div>
+  <div style="background:var(--paper2);border:1px solid var(--rule);padding:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+    <div>
+      <div style="font-weight:600;font-size:14px;margin-bottom:4px">Full market page in development</div>
+      <p style="font-size:13px;color:var(--ink3)">Detailed price history, utility profiles and grid data for Australia coming soon.</p>
+    </div>
+    <a href="../pages/newsletter.html" class="btn-subscribe" style="text-decoration:none;display:inline-block">Notify me →</a>
+  </div>
+</div>
+<div id="footer-ph"></div>
+<script src="../js/shared.js"></script>
+<script>
+window.pageInit = function(data) {
+  const m = data.markets.find(x => x.id === 'australia');
+  if (!m) return;
+  document.getElementById('mkt-status-badge').innerHTML =
+    '<span class="status-chip ' + US.chipClass(m.gridStatus) + '"><span class="chip-dot"></span>' + US.chipLabel(m.gridStatus) + ' grid</span>';
+  document.getElementById('price-boxes').innerHTML =
+    '<div style="background:#fff;border:1px solid var(--rule);padding:20px">' +
+    '<div style="font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:8px">' + m.priceLabel + '</div>' +
+    '<div style="font-family:var(--mono);font-size:26px;font-weight:500;color:var(--teal)">' + m.price + '<span style="font-size:13px;color:var(--ink3)"> ' + m.unit + '</span></div>' +
+    '<div class="chg ' + (m.changeDir==='up'?'up':'dn') + '" style="font-family:var(--mono);font-size:12px;margin-top:6px">' + (m.changeDir==='up'?'▲':'▼') + ' ' + Math.abs(parseFloat(m.change)) + '% from yesterday</div>' +
+    '</div>' +
+    '<div style="background:#fff;border:1px solid var(--rule);padding:20px">' +
+    '<div style="font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:8px">Week range</div>' +
+    '<div style="font-family:var(--mono);font-size:18px;font-weight:500">' + m.weekHigh + ' <span style="color:var(--ink3);font-size:13px">high</span></div>' +
+    '<div style="font-family:var(--mono);font-size:18px;font-weight:500">' + m.weekLow + ' <span style="color:var(--ink3);font-size:13px">low</span></div>' +
+    '</div>' +
+    '<div style="background:#fff;border:1px solid var(--rule);padding:20px">' +
+    '<div style="font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:8px">Grid demand</div>' +
+    '<div style="font-family:var(--mono);font-size:26px;font-weight:500">' + m.demand + '%</div>' +
+    '<div style="height:5px;background:var(--paper3);margin-top:10px"><div style="height:100%;width:' + m.demand + '%;background:' + US.demColor(m.demand) + '"></div></div>' +
+    '</div>';
+};
+</script>
+</body>
+</html>
